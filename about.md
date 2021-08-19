@@ -4,12 +4,14 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am in the process of completing my undergraduate capstone in the Roberts lab, analyzing the maturation of the basket cockle C. nuttallii as it relates to 
+the aquaculture of the species.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+My interests in the field of marine biology are centered around aquaculture, 
+primarily with regards to finfish. 
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[drlawson@uw.edu](mailto:drlawson@uw.edu)

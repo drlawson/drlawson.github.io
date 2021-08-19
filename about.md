@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am in the process of completing my undergraduate capstone in the Roberts lab, analyzing the maturation of the basket cockle C. nuttallii as it relates to 
+I am in the process of completing my undergraduate capstone in the UW Roberts lab, analyzing the maturation of the basket cockle C. nuttallii as it relates to 
 the aquaculture of the species.
 
 ### More Information

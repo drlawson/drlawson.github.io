@@ -1,0 +1,9 @@
+---
+layout: post
+title: 21-Aug-21
+---
+  
+Spent a couple hours going through the lab handbook in detail
+and kept notes here: https://docs.google.com/document/d/16ehrCBZl0fjLNjOuTc1fYY514VA4hyoEvZOq8rZPLb8/edit?usp=sharing.
+
+Double checked all URLs and checked grammar/comprehensibility, etc. 

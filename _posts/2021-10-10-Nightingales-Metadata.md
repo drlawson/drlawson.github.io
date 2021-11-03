@@ -40,6 +40,8 @@ nighttable %>% pivot_wider(names_from = Molecule, values_from = n) %>% kbl(digit
 ```
 <img src="https://github.com/RobertsLab/resources/blob/master/img/nightingales_table.png?raw=true" alt="table" width="50%"/>
 
+![Nightingales Figure](/https://github.com/RobertsLab/resources/blob/master/img/nightingales_table.png?raw=true "Nightingales Figure")
+
 Nightingales Figure (log y axis)
 ```{r}
 nighttable2 <-(nightingales %>% 

@@ -7,7 +7,7 @@ title: C. gigas H&E slide images for Matt
 
 [Oyster staging google sheet](https://docs.google.com/spreadsheets/d/1fqYHdkFAxkhkaCjyz1m-wtLuHCWAQXIDzCgza5Ya_9I/edit?usp=sharing)
 
-I stages gonad slides for Matt using the same methods as my capstone. I took 
+I staged gonad slides for Matt using the same methods as my capstone. I took 
 images of the slides under a microscope at 4x, 10x, and 40x and then used multiple 
 sources to figure out what each stage looked like for this species (linked below). 
 
@@ -21,7 +21,7 @@ follicles" (Matt & Allen Jr 2021)*
 
 
 
-![Diploid - mature (stage 3)](/https://drive.google.com/file/d/1hI97coLMuhMjY-rKH3ONvajnneA8IN-m/view "Diploid mature")
+![Diploid - mature (stage 3)](https://drive.google.com/file/d/1hI97coLMuhMjY-rKH3ONvajnneA8IN-m/view "Diploid mature")
                    
 ![Diploid - late growth (stage 2)](/https://drive.google.com/file/d/1zsBkf9wMWy6aJqx1eueKIzpePQ2Ij752/view "Diploid late growth")  
 
@@ -30,7 +30,7 @@ follicles" (Matt & Allen Jr 2021)*
 ![Diploid - mature, may exhibit early spawning (stage 3-4)](/https://drive.google.com/file/d/1yG1mCLU-VT7aYC9Nr7teIyqM6Muo9LgW/view "Diploid early spawning")
 
 - this may be early spawning due to the open space within follicles: 
-![Diploid - spawning (stage 4)](/https://drive.google.com/file/d/1yG1mCLU-VT7aYC9Nr7teIyqM6Muo9LgW/view?usp=sharing "Diploid early spawning")
+![Diploid - spawning (stage 4)](https://drive.google.com/file/d/1yG1mCLU-VT7aYC9Nr7teIyqM6Muo9LgW/view?usp=sharing "Diploid early spawning")
 
 
 

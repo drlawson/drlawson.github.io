@@ -20,23 +20,25 @@ On the other hand, the triploid oysters exhibited mostly stage 0 gonads (n=10), 
 follicles" (Matt & Allen Jr 2021)*
 
 
-Diploid - mature female (stage 3)
-![Diploid - mature female (stage 3)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D08_10x_a.jpg "Diploid mature")
+Diploid - resting (stage 0)
+![Diploid - resting (stage 0)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D11_10x.jpg "Diploid resting")
 
 Diploid - late growth female (stage 2)                  
 ![Diploid - late growth female (stage 2)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D03_10x.jpg "Diploid late growth")  
 
-Diploid - resting (stage 0)
-![Diploid - resting (stage 0)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D11_10x.jpg "Diploid resting")
+Diploid - mature female (stage 3)
+![Diploid - mature female (stage 3)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D08_10x_a.jpg "Diploid mature")
 
 Diploid - mature female, may exhibit early spawning (stage 3-4)
 ![Diploid - mature female, may exhibit early spawning (stage 3-4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D04_10x.jpg "Diploid early spawning")
 
-- this may be early spawning due to the open space within follicles seen in this image: 
+- this may be early spawning due to the open space within follicles seen in this image (box C shows a mature female, and box D shows a spawning female: 
 ![Diploid - spawning female (D) (stage 4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/Histology-of-gonad-development-stages-of-females-of-Crassostrea-gigas-A-early-active.jpg "Diploid early spawning")
-Box C shows a mature female, and box D shows a spawning female. 
 
 
+Diploid - add do2, do6 and do9 
+
+Triploid - add stage 0 and oligo female examples 
 
 
 

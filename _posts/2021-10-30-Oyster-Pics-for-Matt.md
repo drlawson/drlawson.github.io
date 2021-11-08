@@ -32,7 +32,7 @@ Diploid - mature female (stage 3)
 Diploid - mature female, may exhibit early spawning (stage 3-4)
 ![Diploid - mature female, may exhibit early spawning (stage 3-4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D04_10x.jpg "Diploid early spawning")
 
-- this may be early spawning due to the open space within follicles seen in this image (box C shows a mature female, and box D shows a spawning female: 
+- this may be early spawning due to the open space within follicles on the right side of the image above and as seen in the image below (box C shows a mature female, and box D shows a spawning female) (Ezgata-Balic et al. 2020): 
 ![Diploid - spawning female (D) (stage 4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/Histology-of-gonad-development-stages-of-females-of-Crassostrea-gigas-A-early-active.jpg "Diploid early spawning")
 
 
@@ -50,3 +50,4 @@ Useful papers
 - [table of C. gigas stages](https://www.sciencedirect.com/science/article/pii/S0044848608004134?casa_token=TZB8M_iCI5gAAAAA:8DExseaMxbYgIxoV5QhTovY4b22Jnpb1cdPGBr81WHrFzGriPdzbCZ-H15LjRSbFV3mw26ngsQ#bib23)
 - [digestive tubules](https://www.pnas.org/content/113/9/2430)  
 - [hemocytes images](https://www.google.com/search?q=hemocytes+in+bivalves+histology&tbm=isch&ved=2ahUKEwiLg5r4xOfzAhXJCTQIHdosD48Q2-cCegQIABAA&oq=hemocytes+in+bivalves+histology&gs_lcp=CgNpbWcQAzoHCCMQ7wMQJ1DnNFiwRGDbRmgAcAB4AIABggGIAb8FkgEDOS4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=Lqx3YYu0FsmT0PEP2tm8-Ag&bih=764&biw=1388#imgrc=hb9YOX6JtqYUqM)
+- [Ezgata-Balic et al. 2020](https://www.researchgate.net/publication/340952942_Reproductive_cycle_of_the_non-native_Pacific_oyster_Crassostrea_gigas_in_the_Adriatic_Sea)

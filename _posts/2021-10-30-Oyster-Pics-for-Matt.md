@@ -21,9 +21,9 @@ follicles" (Matt & Allen Jr 2021)*
 
 
 
-![Diploid - mature (stage 3)](https://drive.google.com/file/d/1hI97coLMuhMjY-rKH3ONvajnneA8IN-m/view "Diploid mature")
+![Diploid - mature (stage 3)](https://prnt.sc/1ysnpde "Diploid mature")
                    
-![Diploid - late growth (stage 2)](/https://drive.google.com/file/d/1zsBkf9wMWy6aJqx1eueKIzpePQ2Ij752/view "Diploid late growth")  
+![Diploid - late growth (stage 2)](/https://prnt.sc/1ysns6z "Diploid late growth")  
 
 ![Diploid - resting (stage 0)](/https://drive.google.com/file/d/1ieKD7AjALXWWSKmx_iNbIW9I5_1zLUwm/view "Diploid resting")
 

@@ -21,17 +21,17 @@ follicles" (Matt & Allen Jr 2021)*
 
 
 
-![Diploid - mature (stage 3)](https://prnt.sc/1ysnpde "Diploid mature")
+![Diploid - mature female (stage 3)](https://github.com/drlawson/drlawson.github.io/blob/master/images/D08_10x_a.jpg "Diploid mature")
                    
-![Diploid - late growth (stage 2)](/https://prnt.sc/1ysns6z "Diploid late growth")  
+![Diploid - late growth female (stage 2)](https://github.com/drlawson/drlawson.github.io/blob/master/images/D03_10x.jpg "Diploid late growth")  
 
-![Diploid - resting (stage 0)](/https://drive.google.com/file/d/1ieKD7AjALXWWSKmx_iNbIW9I5_1zLUwm/view "Diploid resting")
+![Diploid - resting (stage 0)](https://github.com/drlawson/drlawson.github.io/blob/master/images/D11_10x.jpg "Diploid resting")
 
-![Diploid - mature, may exhibit early spawning (stage 3-4)](/https://drive.google.com/file/d/1yG1mCLU-VT7aYC9Nr7teIyqM6Muo9LgW/view "Diploid early spawning")
+![Diploid - mature female, may exhibit early spawning (stage 3-4)](https://github.com/drlawson/drlawson.github.io/blob/master/images/D04_10x.jpg "Diploid early spawning")
 
-- this may be early spawning due to the open space within follicles: 
-![Diploid - spawning (stage 4)](https://drive.google.com/file/d/1yG1mCLU-VT7aYC9Nr7teIyqM6Muo9LgW/view?usp=sharing "Diploid early spawning")
-
+- this may be early spawning due to the open space within follicles seen in this image: 
+![Diploid - spawning female (D) (stage 4)](https://github.com/drlawson/drlawson.github.io/blob/master/images/Histology-of-gonad-development-stages-of-females-of-Crassostrea-gigas-A-early-active.jpg "Diploid early spawning")
+Box C shows a mature female, and box D shows a spawning female. 
 
 
 

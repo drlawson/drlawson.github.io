@@ -4,7 +4,7 @@ title: C. gigas H&E slide images for Matt
 ---
 Hi everyone!
 
-[Oyster slide images](https://drive.google.com/file/d/1-nFCqaKR-K64d2JHwro9OKX4NXIB-djq/view?usp=sharing)
+[Oyster slide images](https://drive.google.com/drive/folders/16TO3-1beDiOUhpmIE1NrAnbg3lo8JmOg?usp=sharing)
 
 [Oyster staging google sheet](https://docs.google.com/spreadsheets/d/1fqYHdkFAxkhkaCjyz1m-wtLuHCWAQXIDzCgza5Ya_9I/edit?usp=sharing)
 

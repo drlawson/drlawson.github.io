@@ -2,7 +2,7 @@
 layout: post
 title: C. gigas H&E slide images for Matt
 ---
-Hi everyone!
+Hi everyone! :)
 
 [Oyster slide images](https://drive.google.com/file/d/1-nFCqaKR-K64d2JHwro9OKX4NXIB-djq/view?usp=sharing)
 
@@ -21,7 +21,7 @@ follicles" (Matt & Allen Jr 2021)*
 
 
 
-![Diploid - mature female (stage 3)](https://github.com/drlawson/drlawson.github.io/blob/master/images/D08_10x_a.jpg "Diploid mature")
+![Diploid - mature female (stage 3)](https://raw.github.com/drlawson/drlawson.github.io/blob/master/images/D08_10x_a.jpg "Diploid mature")
                    
 ![Diploid - late growth female (stage 2)](https://github.com/drlawson/drlawson.github.io/blob/master/images/D03_10x.jpg "Diploid late growth")  
 

@@ -20,6 +20,8 @@ On the other hand, the triploid oysters exhibited mostly stage 0 gonads (n=10), 
 follicles" (Matt & Allen Jr 2021)*
 
 
+![Diploid - mature (stage 3)](/Users/Delaney Rose/Downloads/D08_10x_a.jpg)
+
 
 
 ![Diploid - mature (stage 3)](https://prnt.sc/1ysnpde "Diploid mature")

@@ -20,25 +20,31 @@ On the other hand, the triploid oysters exhibited mostly stage 0 gonads (n=10), 
 follicles" (Matt & Allen Jr 2021)*
 
 
-Diploid - resting (stage 0)
+Diploid - resting (stage 0) (D11)
 ![Diploid - resting (stage 0)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D11_10x.jpg "Diploid resting")
 
-Diploid - late growth female (stage 2)                  
+Diploid - late growth female (stage 2) (D03)                  
 ![Diploid - late growth female (stage 2)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D03_10x.jpg "Diploid late growth")  
 
-Diploid - mature female (stage 3)
+Diploid - mature female (stage 3) (D08)
 ![Diploid - mature female (stage 3)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D08_10x_a.jpg "Diploid mature")
 
-Diploid - mature female, may exhibit early spawning (stage 3-4)
+Diploid - mature female, may exhibit early spawning (stage 3-4) (D04)
 ![Diploid - mature female, may exhibit early spawning (stage 3-4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D04_10x.jpg "Diploid early spawning")
 
 - this may be early spawning due to the open space within follicles on the right side of the image above and as seen in the image below (box C shows a mature female, and box D shows a spawning female) (Ezgata-Balic et al. 2020): 
 ![Diploid - spawning female (D) (stage 4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/Histology-of-gonad-development-stages-of-females-of-Crassostrea-gigas-A-early-active.jpg "Diploid early spawning")
 
-Diploid - stage could not be determined due to low presence of gonads 
+Diploid - stage could not be determined due to low presence of gonads  (D02)
 ![Diploid - could not be determined](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D02_10x%20(1).jpg "Diploid NA")
 
-Diploid - add do2, do6 and do9 
+Diploid - hermaphroditic stage 3. This oyster may exhibit protogyny (rare but does occur), because there appear to be residual oocytes and a majority of male reproductive cells. Both the female and male gonads seem to be ripe, which is why this is categorized as a stage 3 hermaphrodite (D06)
+![Diploid - H](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D06_10x%20(3).jpg "Diploid H")
+
+Diploid - mature male (stage 3) (D09)
+![Diploid - mature male (stage 4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D09_40x_b%20(1).jpg "Diploid mature male")
+
+
 
 Triploid - add stage 0 and oligo female examples 
 

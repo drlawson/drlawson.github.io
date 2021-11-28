@@ -45,13 +45,19 @@ Diploid - mature male (stage 3) (D09)
 ![Diploid - mature male (stage 4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D09_40x_b%20(1).jpg "Diploid mature male")
 
 
+Triploid - resting (stage 0) (D07)
+![Triploid - resting (stage 0)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/T07_10x.jpg)
 
-Triploid - oligo female ("follicles are lined with beta gonia and contain few to no oocytes" (Matt & Allen 2020)) 
+Triploid - oligo female ("follicles are lined with beta gonia and contain few to no oocytes" (Matt & Allen 2020), early growth (stage 1)) 
 
-T06: 
-![Diploid - mature male (stage 4)]( )
+T06 10x: 
+![Triploid oligo female)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/T06_10x.jpg)
 
+T06 40x: ![Triploid oligo female)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/T06_40x.jpg)
 
+T03 10x:![Triploid oligo female)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/T03_10x.jpg)
+
+T03 40x: ![Triploid oligo female)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/T03_40x.jpg)
 
 Useful papers
 - [gonad development of male C. gigas](https://www.researchgate.net/figure/Histology-of-gonad-development-stages-of-males-of-Crassostrea-gigas-A-early-active_fig3_340952942)

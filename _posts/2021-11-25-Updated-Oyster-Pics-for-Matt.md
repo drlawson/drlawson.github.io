@@ -49,7 +49,7 @@ Diploid - mature male (stage 3) (D09)
 Triploid - oligo female ("follicles are lined with beta gonia and contain few to no oocytes" (Matt & Allen 2020)) 
 
 T06: 
-![Diploid - mature male (stage 4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D09_40x_b%20(1).jpg )
+![Diploid - mature male (stage 4)]( )
 
 
 

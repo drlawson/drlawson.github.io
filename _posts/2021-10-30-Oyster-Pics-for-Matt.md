@@ -35,6 +35,8 @@ Diploid - mature female, may exhibit early spawning (stage 3-4)
 - this may be early spawning due to the open space within follicles on the right side of the image above and as seen in the image below (box C shows a mature female, and box D shows a spawning female) (Ezgata-Balic et al. 2020): 
 ![Diploid - spawning female (D) (stage 4)](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/Histology-of-gonad-development-stages-of-females-of-Crassostrea-gigas-A-early-active.jpg "Diploid early spawning")
 
+Diploid - stage could not be determined due to low presence of gonads 
+![Diploid - could not be determined](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/D02_10x%20(1).jpg "Diploid NA")
 
 Diploid - add do2, do6 and do9 
 

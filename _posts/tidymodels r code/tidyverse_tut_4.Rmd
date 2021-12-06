@@ -1,0 +1,174 @@
+---
+title: "Tidverse tutorial 4"
+output: html_document
+---
+
+hyperparameters: model parameters that can't be learned directly from a data set during model training
+
+hyperparameters are configuration variables about the training process itself, whereas model parameters are variables that get adjusted by training with the existing data (cran.r-project.org)
+
+model parameters are learned from the data. we can "think of models as a hypothesis and model parameters as the tailoring of the hypothesis to a specific set of data" (https://machinelearningmastery.com/difference-between-a-parameter-and-a-hyperparameter/). model hyperparameters are often specified by the practitioner, external to the model, and can not be estimated from data (https://machinelearningmastery.com/difference-between-a-parameter-and-a-hyperparameter/). 
+
+examples of hyperparameters - number of predictors that are sampled at splits in a tree-based model 
+- learning rate in a boosted tree model
+
+these values can be estimated by training many models on resampled data sets and explore how well the models perform. this is called tuning
+
+```{r}
+library(tidymodels)
+
+library(rpart.plot) #visualize a decision tree
+library(vip) #for variable importance plots
+```
+
+going to use the cells data again (see tutorial 3)
+```{r}
+data(cells,package = "modeldata")
+
+cells
+```
+
+Last time, we used a random tree model to predict image segmentation. However, boosted tree models or decision tree models can be sensitive to the values of hyperparameters, which random tree models are not. In this tutorial we will train a decision tree model!
+
+There are several hyperparameters for decision tree models that can be tuned for better performance. Two examples are (1) the complexity parameter (cost_complexity) and (2) the maximum tree_depth.
+- these are useful because decision tree models are prone to overfitting because single tree models tend to fit the training data too well (they overlearn patterns present in the training data that are detrimental when predicting new data)
+
+Tuning the hyperparameters helps avoid overfitting
+- cost_complexity helps prune back the tree (the process of growing a large complex tree and pruning it down to create one with the lowest penalized error) - this means that the model will be changed into a good fit for the data instead of being over-fitted to the training data. Therefore, the model will be a better predictor for data not included in the training data (such as the testing data)
+- over-fitted models are biased to the sample meaning that they can not properly estimate the parameters for the entire populations  
+
+Cost_complexity adds a cost, or penalty, to error rates of complex trees. Costs closer to zero decrease the number of tree nodes pruned and is more likely to yield an overfit tree. Larger costs increase the number of nodes pruned and is more likely to yield an UNDERfit tree. 
+
+Tree_depth stops the tree from growing after it reaches a certain depth in order to keep the tree to a certain size. 
+
+
+To start this tutorial, we start by splitting the data into training and testing sets like in tutorial 3
+```{r}
+set.seed(123)
+cell_split <- initial_split(cells %>% select(-case),
+                            strata = class)
+cell_train<- training(cell_split)
+cell_test<- testing(cell_split)
+```
+
+Now we are going to make a decision tree model, and using cost_complexity and tree_depth to tell the model with hyperparameters we are going to tune
+```{r}
+tune_spec <-
+  decision_tree(
+    cost_complexity = tune(),
+    tree_depth = tune()
+  ) %>% set_engine("rpart") %>%
+  set_mode("classification") #same as in tutorial 3
+
+#tune here is thought of as a "placeholder," meaning that after the tuning process we will select a single numerical value for each of the parameters 
+
+tune_spec
+```
+
+In order to learn what the hyperparameter values should be, we need to train many models using resampled data instead of a single data set - this allows us to see which models turned out best (which can not be done with one set of data)
+
+We are going to first create a grid of values to try using some convenience functions for each hyperparameter - the function grid_regular chooses sensible values to try for each parameter, and the levels indicate how many of each are given - grid_regular already knows the range of sensible values to try for each hyperparameter, so all we need to plug in is the hyperparameter
+```{r}
+tree_grid <- grid_regular(cost_complexity(),
+                          tree_depth(),
+                          levels=5) #this means we will have 5 values for each hyperparameter, meaning a grid of 5x5, or 25
+
+tree_grid
+```
+now we can split our data into folds, as was seen in tutorial 3
+```{r}
+set.seed(234)
+cell_folds <- vfold_cv(cell_train) #creating folds from the cell training data - the default is 10 folds so if you do not plug in a value for v, it will automatically output 10 folds
+
+cell_folds
+```
+
+
+now its time to tune out model with the grid we created - we will use tune_grid to fit models at the different values in our grid for each hyperparameter 
+ 
+As in the other tutorials, we can tune a model with a recipe or tune a workflow that bundles a model and a model preprocessor. we will use a workflow here
+
+```{r}
+set.seed(345)
+
+tree_wf <- workflow() %>%
+  add_model(tune_spec) %>%
+  add_formula(class ~ .) #this tells the model what the outcome is (class), and what the predictors are (the dot signifies that all other variables in the data will be treated as predictors)
+
+tree_res <- 
+  tree_wf %>%
+  tune_grid(
+    resamples = cell_folds, #this is the folds we created from our data
+    grid = tree_grid #this is the grid with the 5 values for each hyperparameter to try with our model 
+  )
+
+#this code tries running the model with each of the 25 combinations for the values generated in the grid (hyperparameter values)
+
+#yields tuning results that we can visualize and explore to find the best result
+```
+
+Collect_metrics() will give a tidy tibble with the results. The default metrics are accuracy and roc_auc so we will get 50 rows
+```{r}
+tree_res %>%
+  collect_metrics()
+```
+We are going to make a ggplot in order to visualize the results
+```{r}
+tree_res %>%
+  collect_metrics() %>%
+  mutate(tree_depth = factor(tree_depth)) %>%
+  ggplot(aes(cost_complexity, mean, color = tree_depth))+
+  geom_line(size=1.5, alpha = 0.6) +
+  geom_point(size =2) +
+  facet_wrap(~ .metric, scales = "free", nrow = 2) +
+  scale_x_log10(labels = scales::label_number()) +
+  scale_color_viridis_d(option = "plasma", begin = .9, end = 0)
+```
+By looking at this plot, we can see that the tree with a depth of 1 performed the worst, and in terms of accuracy our tree depth of 4 performed best. We can use the code show_best to see the top 5 candidate models, or we can use the select_best to pull out the single best set of hyperparameter values, both of which can be seen below 
+
+```{r}
+tree_res %>% 
+  show_best("accuracy")
+```
+
+```{r}
+best_tree <- tree_res %>%
+  select_best("accuracy")
+
+best_tree
+```
+
+From this we can conclude that the best value for cost complexity is 1*10^-10, and the best value for tree depth is 4
+
+Now we can update or "finalize" our workflow object tree_wf with the values from select_best in the section above
+```{r}
+final_wf <-
+  tree_wf %>% #the workflow we had previously created
+  finalize_workflow(best_tree)
+
+final_wf
+```
+
+
+Now we are finally ready to fit the final model to the training data and use the test data to esstimate the model performance that is seen with our new data. The code last_fit() fits the finalized model on the full training data set and evaluates the finalized model on the testing data 
+
+```{r}
+final_fit <- 
+  final_wf %>%
+  last_fit(cell_split)
+
+final_fit %>%
+  collect_metrics() #gives us the accuracy and area under the roc curves for the final model 
+```
+
+```{r}
+final_fit %>%
+  collect_predictions() %>%
+  roc_curve(class, .pred_PS) %>%
+  autoplot()
+```
+
+
+
+
+

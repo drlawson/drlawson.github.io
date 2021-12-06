@@ -1,0 +1,333 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+Learning to use the Recipes tidymodels package
+- helps preprocess data before training your model such as 
+    - convert qualitative predictors to indicator variables
+    - transform data to be on different scale 
+    - transform groups of predictors together
+    - extract key features from raw variables (like day of week from date variable)
+
+```{r}
+library(tidymodels) #for recipe package
+
+#helper packages
+install.packages("nycflights13")
+library(nycflights13) #for flight data
+
+install.packages("skimr")
+library(skimr) #for variable summaries
+```
+
+```{r}
+summary(flights)
+```
+
+
+```{r}
+set.seed(123)
+
+
+flight_data <- 
+  flights %>%
+  mutate(
+    arr_delay = ifelse(arr_delay >= 30, "late", "on_time"),
+    #labeling those 30 or more minutes late as late and all others on time
+    arr_delay = factor(arr_delay),
+    #convert the arrival delay to a factor with two levels (late, or on time)
+    date = lubridate::as_date(time_hour)
+    #code that makes looking at dates easier, takes the time/hour/date data from the original data set and changes it to only the date
+  )%>%
+    #include weather data 
+  inner_join(weather, by = c("origin", "time_hour")) %>%
+  #only retain the specific columns we will use (excludes several columns)
+  select(dep_time, flight, origin, dest, air_time, distance, carrier, date, arr_delay, time_hour) %>%
+  #exclude missing data
+  na.omit() %>% 
+  #better to have qualitative columns encoded as factors instead of character strings - factors use values and character strings use letters
+  mutate_if(is.character, as.factor)
+```
+
+```{r}
+summary(flight_data)
+```
+
+
+```{r}
+#determine the percent of flights that arrived 30 or more minutes late
+
+flight_data %>%
+  count(arr_delay)%>%
+  mutate(prop = n/sum(n))
+
+```
+
+```{r}
+glimpse(flight_data) #beware that we do not want to use flight or time_hour as a predictor in our model 
+```
+
+
+```{r}
+flight_data %>% 
+  skimr::skim(dest, carrier) #to determine the number of flight destinations and the number of distinct carriers (brands like Delta etc) - skim is an alternate to summary 
+
+#will be using simple logistic regression model so destination and carrier will be converted to dummy variables - set of artificial numbers that represent categorical data (like using binary code to represent the days of the week)
+```
+
+
+Split the data in 2 
+```{r}
+#splitting dataset into 2 parts - training data to FIT the model, testing data to measure model performance
+
+set.seed(222) # fix the random numbers which allows this to be reproducible
+
+#putting 3/4 of the data into the training set 
+data_split <- initial_split(flight_data, pop = 3/4)
+
+#create data frames from both 
+train_data <- training(data_split)
+test_data <- testing(data_split) 
+```
+
+
+Create recipe and roles
+```{r}
+flights_rec <- 
+  recipe(arr_delay ~ ., data = train_data)%>%
+#recipe function has 2 arguments: formula (any variable on the left side of the ~ would be considered the model outcome (aka arr_delay). on the right side would be the predictors or you can use the dot to indicate all other variables as predictors) - OR data (recipe is associated with the data set used to create the model, usually used for the training set which is why data is train_data here)
+
+update_role(flight, time_hour, new_role = "ID") #let recipes know that flight and time_hour are variables with a custom role called "ID" - tells the recipe to keep these two variables but not use them as outcomes or predictors in the model - "ID" can be replaced with "predictor" or "outcome" to change the role in the model
+
+summary(flights_rec)
+
+```
+
+Create features
+```{r}
+#maybe date has something to do with the likelihood of being late, we need to change date into a numeric value
+
+flight_data %>% 
+  distinct(date) %>% 
+  mutate(numeric_date = as.numeric(date))
+
+```
+
+
+```{r}
+#however, your model may be more complete by being able to see the day of the week, the month, and whether or not the date corresponds to a holiday 
+
+flights_rec <- 
+  recipe(arr_delay ~ ., data = train_data) %>%
+  update_role(flight, time_hour, new_role = "ID")%>%
+  step_date(date, features = c("dow", "month")) %>% #adds two new factor columns, day of the week and the month 
+  step_holiday(date, 
+               holidays = timeDate::listHolidays("US"),
+               keep_original_cols = FALSE) #binary variable listing holiday or not - the keep_original_cols means we are removing the original                date variable since we no longer need it in the  model
+
+```
+
+
+Since we are creating a logistic regression model, the predictors need to be numeric instead of nominal (string and factor)
+
+#you have to tell the model to change predictors into numerical value in this case because not all models require numeric predictors 
+
+```{r}
+#making the categorical (aka nominal) data into dummy variables (assign binary values to each)
+flights_rec <- 
+  recipe(arr_delay ~ ., data = train_data) %>%
+  update_role(flight, time_hour, new_role = "ID")%>%
+  step_date(date, features = c("dow", "month")) %>% 
+  step_holiday(date, 
+               holidays = timeDate::listHolidays("US"),
+               keep_original_cols = FALSE)%>%
+  step_dummy(all_nominal_predictors()) #applied to all nominal predictors instead of isolation an individual variable (selects the origin, dest, and carrier, date_dow, and date_month)
+
+
+```
+
+```{r}
+#check to see if there are any destinations or origins present in the test set and not the training set
+
+test_data %>%
+  distinct(dest) %>%
+  anti_join(train_data)
+
+test_data %>%
+  distinct(origin) %>%
+  anti_join(train_data)
+
+#find that there is one destination that is present in the test data but not the training data, and no origins
+#we will use step_zv() in order to remove columns from the data when the training set have a single value. needs to be added AFTER step_dummy
+```
+
+
+```{r}
+flights_rec <- 
+  recipe(arr_delay ~ ., data = train_data) %>%
+  update_role(flight, time_hour, new_role = "ID")%>%
+  step_date(date, features = c("dow", "month")) %>% 
+  step_holiday(date, 
+               holidays = timeDate::listHolidays("US"),
+               keep_original_cols = FALSE)%>%
+  step_dummy(all_nominal_predictors()) %>%
+  step_zv(all_predictors())
+
+#now the recipe is complete! how do we use it? 
+```
+
+
+Merging the recipe and the model 
+
+```{r}
+#building a model specification with the parsnip package
+
+lr_mod<- 
+  logistic_reg()%>%
+  set_engine("glm")
+
+#bundle the model and recipe together using the workflows package (makes it easier to train and test workflows)
+
+flights_wflow <-
+  workflow()%>%
+  add_model(lr_mod) %>%
+  add_recipe(flights_rec)
+
+
+#prepare the recipe and train the model from the resulting predictors 
+flights_fit <-
+  flights_wflow %>%
+  fit(data = train_data)
+
+#recipe is now finalized and model objects were fitted inside 
+
+```
+
+```{r}
+
+#if you want to extract the model or recipe objects from the workflow: 
+flights_fit %>% 
+  extract_fit_parsnip()%>%
+  tidy()
+
+flights_fit %>%
+  extract_recipe() %>%
+  tidy()
+```
+
+
+Now we need to use the workflow (flights_fit) with the test data 
+```{r}
+predict(flights_fit, test_data)
+
+#this returns the prediction for if each flight will be on time or late (by 30 mins or more)
+```
+
+
+If we want to know the probability of a flight being on time instead, we can do this: 
+```{r}
+#save the model and test data together
+flights_aug <- 
+  augment(flights_fit, test_data)
+
+flights_aug %>% 
+  select(arr_delay, time_hour, flight, .pred_class, .pred_on_time)
+```
+
+
+Now we want to know the accuracy of our model (calculate a metric that tells us how well the model predicted late arrivals as compared to the actual data in column "arr_delay")
+
+```{r}
+#The area under an ROC (receiver operating characteristic) curve can help us determine this - frequently used method to evaluate the performance of binary algorithms
+
+flights_aug %>%
+  roc_curve(truth = arr_delay, .pred_late) %>%
+  autoplot() #makes the ROC plot
+
+flights_aug %>%
+  roc_auc(truth = arr_delay, .pred_late) #calculates area under the curve
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+Trying the model without the recipe now just to see if the recipe improved it at all 
+
+```{r}
+flight_data_2 <- 
+  flights %>%
+  mutate(
+    #convert the arrival delay to a factor (aka categorical instead of the number of minutes late)
+    arr_delay = ifelse(arr_delay >= 30, "late", "on_time"),
+    #labeling those 30 or more minutes late as late and all others on time
+    arr_delay = factor(arr_delay),
+    #makes it into a factor with 2 levels 
+    date = lubridate::as_date(time_hour)
+    #code that makes looking at dates easier, takes the time/hour/date data from the original data set and changes it to only the date
+  )%>%
+    #include weather data - where is this from and where does it go???
+  inner_join(weather, by =  c("origin", "time_hour")) %>%
+  #only retain the specific columns we will use (excludes several columns)
+  select(dep_time, origin, dest, air_time, distance, carrier, date, arr_delay) %>%
+  #exclude missing data
+  na.omit() %>% 
+  #better to have qualitative columns encoded as factors instead of character strings - factors use values and character strings use letters
+  mutate_if(is.character, as.factor)
+
+
+```
+
+```{r}
+set.seed(84) 
+data_split_2 <- initial_split(flight_data_2, pop = 3/4)
+
+
+train_data_2 <- training(data_split_2)
+test_data_2 <- testing(data_split_2) 
+
+test_data_2 %>%
+  distinct(dest) %>%
+  anti_join(train_data_2)
+
+```
+
+```{r}
+lr_mod_2<- 
+  logistic_reg()%>%
+  set_engine("glm")
+
+lr_fit_2 <-
+  lr_mod_2 %>%
+  fit(arr_delay ~ date * dest, data = train_data_2)
+
+```
+
+
+```{r}
+flights_aug_2 <- 
+  augment(lr_fit_2, test_data)
+
+flights_aug_2 %>% 
+  select(arr_delay,.pred_class, .pred_on_time)
+```
+
+```{r}
+flights_aug_2 %>%
+  roc_curve(truth = arr_delay, .pred_late) %>%
+  autoplot() #makes the ROC plot
+
+flights_aug_2 %>%
+  roc_auc(truth = arr_delay, .pred_late) #calculates area under the curve
+```
+
+Shows that the results are much less accurate without using the recipe 

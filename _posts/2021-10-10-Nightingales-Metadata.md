@@ -39,7 +39,7 @@ nighttable %>% pivot_wider(names_from = Molecule, values_from = n) %>% kbl(digit
   kable_classic(full_width = F, html_font = "Cambria")  
 ```
 
-![Nightingales Table](/https://github.com/RobertsLab/resources/blob/master/img/nightingales_table.png?raw=true "Nightingales Table")
+![Nightingales Table](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/Nightingales_Table.png)
 
 Nightingales Figure (log y axis)
 ```{r}
@@ -53,7 +53,7 @@ plot_ly(nighttable2, x = ~Primary_taxa, y = ~DNA, name = 'DNA', type='bar', mark
   layout(barmode = 'stack', showlegend = TRUE, yaxis = list(type="log",title = "Count"))
 ```
 
-![Nightingales Figure](/https://github.com/RobertsLab/resources/blob/master/img/nightingales_figure.png?raw=true "Nightingales Figure")
+![Nightingales Figure](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/Nightingales_Fig.png)
 
 
 

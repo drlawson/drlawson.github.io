@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tidymodels Recipe Tutorial Videos
+title: Tidymodels Recipe Tutorial Videos (2)
 ---
 
 I ran through the Tidymodels recipe tutorial and thought it would be very 

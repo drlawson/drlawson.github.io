@@ -1,24 +1,37 @@
 ---
-title: "tidyverse_tutorial"
+title: "tidyverse_tutorial_1"
 output: html_document
 ---
 
-broom.mixed, dotwhisker, readr, rstanarm, and tidymodels.
 ```{r}
 install.packages("tidymodels")
-library(tidymodels)
 
 install.packages("broom.mixed")
-library(broom.mixed)
 
 install.packages("dotwhisker")
-library(dotwhisker)
 
 install.packages("readr")
-library(readr)
 
 install.packages("rstanarm")
 ```
+
+```{r}
+library(tidymodels)
+
+library(broom.mixed)
+
+library(dotwhisker)
+
+library(readr)
+```
+
+
+```{r}
+urchins_trial <- read_csv("https://tidymodels.org/start/models/urchins.csv")
+
+urchins_trial
+```
+
 
 ```{r}
 urchins <- read_csv("https://tidymodels.org/start/models/urchins.csv")%>%
@@ -27,6 +40,11 @@ setNames(c("food_regime", "initial_volume", "width"))%>%
   
 mutate(food_regime = factor(food_regime, levels = c("Initial", "Low", "High")))
 
+urchins
+```
+
+
+```{r}
 ggplot(urchins,
        aes(x = initial_volume, 
            y = width, 
@@ -36,35 +54,71 @@ ggplot(urchins,
   geom_smooth(method = lm, se = FALSE) +
   scale_color_viridis_d(option = "plasma", end = .7)
 ```
+
+
+width ~ initial_volume * food_regime
+
+
+
 ```{r}
 lm_mod <- 
   linear_reg() %>% 
-  set_engine("lm")
+  set_engine("lm") #creating the model
+
+
 
 lm_fit <- 
   lm_mod %>% 
-  fit(width ~ initial_volume * food_regime, data=urchins)
-lm_fit
+  fit(width ~ initial_volume * food_regime, data=urchins) #the formula mentioned above
 
+lm_fit #model is estimated or trained
+```
+
+
+
+```{r}
 tidy(lm_fit)
+```
 
+```{r}
 tidy(lm_fit) %>% 
   dwplot(dot_args = list(size = 2, color = "black"),
          whisker_args = list(color = "black"),
          vline = geom_vline(xintercept = 0, colour = "grey50", linetype = 2))
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Using our model to predict
+
 ```{r}
 new_points <- expand.grid(initial_volume = 20, 
                           food_regime = c("Initial", "Low", "High"))
 
 new_points
+```
 
+```{r}
 #mean values at each food regime
 mean_pred <- predict(lm_fit, new_data = new_points)
 
 mean_pred
+```
 
+```{r}
 #confidence interval of mean values for each food regime
 conf_int_pred <- predict(lm_fit, 
                          new_data = new_points, 
@@ -72,12 +126,18 @@ conf_int_pred <- predict(lm_fit,
 conf_int_pred
 ```
 
+
+
 ```{r}
 plot_data <- 
   new_points %>% 
   bind_cols(mean_pred) %>% 
   bind_cols(conf_int_pred)
 
+plot_data
+```
+
+```{r}
 ggplot(plot_data, aes(x = food_regime)) + 
   geom_point(aes(y = .pred)) + 
   geom_errorbar(aes(ymin = .pred_lower, 
@@ -86,6 +146,26 @@ ggplot(plot_data, aes(x = food_regime)) +
   labs(y = "urchin size")
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Model with a different engine
 ```{r}
 prior_dist <- rstanarm::student_t(df = 1)
 
@@ -107,6 +187,8 @@ print(bayes_fit, digits = 5)
 
 tidy(bayes_fit, conf.int = TRUE)
 ```
+
+
 
 ```{r}
 bayes_plot_data <- 

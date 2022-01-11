@@ -19,4 +19,4 @@ Part 4 - Trying to tune a third hyperparameter (min_n), and seeing if this has a
 
 [Parameter vs. Hyperparameter](https://machinelearningmastery.com/difference-between-a-parameter-and-a-hyperparameter/)
 
-[Hyperparameter Wikipedia](https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)
+[Hyperparameter Wikipedia](https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning))

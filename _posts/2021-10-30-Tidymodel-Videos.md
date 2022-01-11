@@ -9,8 +9,9 @@ information about the tutorial without having to run through it completely. I
 highly suggest watching them at 1.5x speed, I talk quite slowly lol!
 
 The first video I made is an introduction to the tutorial, recipes, and lists the topics I 
-will be covering in the the following videos. 
-[Link here](https://washington.zoom.us/rec/play/HZYg3wVHyM4e3qIz5cZq4uUpK3-ZZqRiUUEwLJZBc2FAzZMVwWnOH2243GrxReEgxfCRkH4AfSDCkk3P.W0EVaVoC0Z96RQT7?autoplay=true&startTime=1635881251000) (1:47)
+will be covering in the the following videos (1:47).
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EZB943feH68" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 
 The second video goes over the data manipulation performed in the tutorial 
 before the recipe could be written. This was very helpful for me (an R beginner),

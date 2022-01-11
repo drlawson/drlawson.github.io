@@ -2,3 +2,8 @@
 layout: post
 title: Tidymodels "Build a Model" Tutorial Videos (1)
 ---
+Part 1 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dGEVhCa2I50" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+Part 2
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TviDLDrHs1I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

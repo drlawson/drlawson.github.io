@@ -14,14 +14,17 @@ will be covering in the the following videos.
 
 The second video goes over the data manipulation performed in the tutorial 
 before the recipe could be written. This was very helpful for me (an R beginner),
-and may be unnecessary for well-seasoned R coders.  
-[Link here]( https://washington.zoom.us/rec/share/nJEhwUQVCTkE3VDVczQA-srCrbVa88O7orECQX0WW7xj40C91TCHWDCqVKXjOLIo.1IzHcX_TuVhXinb2?startTime=1635884163000) (7:31)
+and may be unnecessary for well-seasoned R coders (7:31).
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AU2DgVu5doI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-The third video shows how to write the recipe itself. 
-[Link here]( https://washington.zoom.us/rec/play/UtbeuHyajRf7QurJ0u7K7phTvKXqeuA9UveINqAjgofjnAnEHkjoGRVSBpPWG0A6vYXztpP1ZtgZIv7Z.DYBKUA4mJPwrnctu?autoplay=true&startTime=1635890974000) (6:30)
 
-The fourth video shows how to merge the model and the recipe together. 
-[Link here](https://washington.zoom.us/rec/play/RXK56eLE-RKI4NMNH11JQ5jFjEB6sGaxSLS0jg1Ay2vC2GZMWXat6UJG9fbCZst84zs1G9GsINYo8ly_.ne6boMAmko46kDKd?autoplay=true&startTime=1635886449000) (6:06)
+The third video shows how to write the recipe itself (6:30).
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n0jqL386EhQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+
+
+The fourth video shows how to merge the model and the recipe together (6:06). 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lHu_apqqyI8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  
+
 
 I have not yet gotten around to making the 5th and final video which will show 
 how to run the model without the recipe in order to test how the recipe influenced

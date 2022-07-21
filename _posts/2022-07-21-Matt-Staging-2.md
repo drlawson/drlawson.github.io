@@ -12,8 +12,10 @@ While staging diploids I used techniques/findings from [this paper](https://www.
 In a [previous notebook post](https://drlawson.github.io/Updated-Oyster-Pics-for-Matt/) I included pictures of each diploid and triploid stage. In this post, I will be posting images that I was not certain about in hopes that someone will be able to help me figure those out. 
 
 **N74**
-![N74_10x](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/N74_10x.JPG)
-I had trouble figuring out if this individual (diploid) was spent or if the quality of the sample was just low. For reference, here is an image of a spent female from a [research paper](https://www.researchgate.net/publication/340952942_Reproductive_cycle_of_the_non-native_Pacific_oyster_Crassostrea_gigas_in_the_Adriatic_Sea).
+![N74_10x](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/N74_10x.JPG)  
+
+I had trouble figuring out if this individual (diploid) was spent or if the quality of the sample was just low. For reference, here is an image of a spent female from a [research paper](https://www.researchgate.net/publication/340952942_Reproductive_cycle_of_the_non-native_Pacific_oyster_Crassostrea_gigas_in_the_Adriatic_Sea) (seen in box E).  
+
 ![Box E](https://raw.githubusercontent.com/drlawson/drlawson.github.io/master/images/Histology-of-gonad-development-stages-of-females-of-Crassostrea-gigas-A-early-active.jpg)
 
 **N79**
